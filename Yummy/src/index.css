@@ -1664,3 +1664,59 @@
   .header{
     width: 100%;
   }
+
+  .d-flex {
+    display: flex !important;
+}
+.justify-content-center {
+    justify-content: center !important;
+}
+
+.nav {
+     --bs-nav-link-padding-x: 1rem; 
+     --bs-nav-link-padding-y: 0.5rem; 
+     --bs-nav-link-font-weight: ; 
+     --bs-nav-link-color: var(--bs-link-color); 
+     --bs-nav-link-hover-color: var(--bs-link-hover-color); 
+     --bs-nav-link-disabled-color: var(--bs-secondary-color); 
+     display: flex; 
+     flex-wrap: wrap; 
+     padding-left: 0; 
+     margin-bottom: 0; 
+     list-style: none; 
+}
+
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+    unicode-bidi: isolate;
+}
+
+.nav-item{
+    margin: 0 15px;
+}
+
+.row {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: calc(-1* var(--bs-gutter-y));
+    margin-right: calc(-.5* var(--bs-gutter-x));
+    margin-left: calc(-.5* var(--bs-gutter-x));
+}
+.gy-5 {
+    --bs-gutter-y: 3rem;
+  }
+  .img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+img, svg {
+    vertical-align: middle;
+}
