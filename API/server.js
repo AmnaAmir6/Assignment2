@@ -67,7 +67,33 @@ app.post('/profile',(req, res) => {
   });
 });
 
+app.get('/profiles', (req, res) => {
+    const profilesPath = path.join(__dirname, 'profiles.json');
   
+    // Read the profiles JSON file
+    fs.readFile(profilesPath, 'utf8', (err, data) => {
+      if (err) {
+        return res.status(500).json({
+          success: false,
+          message: 'Could not read profiles data.'
+        });
+      }
+  
+      
+      try {
+        const profiles = JSON.parse(`[${data.slice(0, -2)}]`); 
+        res.status(200).json({
+          success: true,
+          profiles
+        });
+      } catch (parseErr) {
+        res.status(500).json({
+          success: false,
+          message: 'Error parsing profiles data.'
+        });
+      }
+    });
+  });
 
 // Start the server
 app.listen(port, () => {
