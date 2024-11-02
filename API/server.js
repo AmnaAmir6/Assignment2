@@ -29,7 +29,45 @@ app.get('/hello/amjad', (req, res) => {
 });
 
 
+app.post('/profile',(req, res) => {
+  const { Name, Title, TargetedKeywords, Education, Certification, Contact } = req.body;
+  
+  console.log("Entry point for /profile");
 
+  if (!Name || !Title || !TargetedKeywords || !Education || !Certification || !Contact) {
+    return res.status(400).json({
+      success: false,
+      message: 'All fields are required.'
+    });
+  }
+
+  const profileData = {
+    Name,
+    Title,
+    TargetedKeywords,
+    Education,
+    Certification,
+    Contact
+  };
+
+  const profilesPath = path.join(__dirname, 'profiles.json');
+
+  fs.appendFile(profilesPath, `${JSON.stringify(profileData,null,2)},\n`, (err) => {
+    if (err) {
+      return res.status(500).json({
+        success: false,
+        message: 'Could not append profile data to the file.'
+      });
+    }
+
+    res.json({
+      success: true,
+      message: 'Profile saved successfully!'
+    });
+  });
+});
+
+  
 
 // Start the server
 app.listen(port, () => {
