@@ -1,14 +1,15 @@
-// components/Menu.js
-import React from 'react';
+import React, { useState } from 'react';
 import TabNav from './TabNav';
 import MenuSection from './MenuSection';
 
 function Menu() {
+  const [activeTab, setActiveTab] = useState('#menu-starters'); // Initial active tab
+
   const tabs = [
-    { label: 'Starters', target: '#menu-starters', active: true },
-    { label: 'Breakfast', target: '#menu-breakfast', active: false },
-    { label: 'Lunch', target: '#menu-lunch', active: false },
-    { label: 'Dinner', target: '#menu-dinner', active: false }
+    { label: 'Starters', target: '#menu-starters' },
+    { label: 'Breakfast', target: '#menu-breakfast' },
+    { label: 'Lunch', target: '#menu-lunch' },
+    { label: 'Dinner', target: '#menu-dinner' }
   ];
 
   const menuData = {
@@ -38,12 +39,24 @@ function Menu() {
         </p>
       </div>
       <div className="container">
-        <TabNav tabs={tabs} />
+        <TabNav 
+          tabs={tabs} 
+          activeTab={activeTab} 
+          onTabClick={setActiveTab} // Pass function to handle tab changes
+        />
         <div className="tab-content" data-aos="fade-up" data-aos-delay="200">
-          <MenuSection id="menu-starters" sectionTitle="Starters" items={menuData.starters} />
-          <MenuSection id="menu-breakfast" sectionTitle="Breakfast" items={menuData.breakfast} />
-          <MenuSection id="menu-lunch" sectionTitle="Lunch" items={menuData.lunch} />
-          <MenuSection id="menu-dinner" sectionTitle="Dinner" items={menuData.dinner} />
+          {activeTab === '#menu-starters' && (
+            <MenuSection id="menu-starters" sectionTitle="Starters" items={menuData.starters} />
+          )}
+          {activeTab === '#menu-breakfast' && (
+            <MenuSection id="menu-breakfast" sectionTitle="Breakfast" items={menuData.breakfast} />
+          )}
+          {activeTab === '#menu-lunch' && (
+            <MenuSection id="menu-lunch" sectionTitle="Lunch" items={menuData.lunch} />
+          )}
+          {activeTab === '#menu-dinner' && (
+            <MenuSection id="menu-dinner" sectionTitle="Dinner" items={menuData.dinner} />
+          )}
         </div>
       </div>
     </section>

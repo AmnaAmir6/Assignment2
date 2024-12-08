@@ -5,9 +5,9 @@ import MenuItem from './MenuItem';
 function MenuSection({ id, sectionTitle, items }) {
   return (
     <div className="tab-pane fade" id={id}>
-      <div className="tab-header text-center">
-        <p>Menu</p>
-        <h3>{sectionTitle}</h3>
+      <div className="tab-header text-center flex">
+        <p >Menu</p>
+        <h3 >{sectionTitle}</h3>
       </div>
       <div className="row gy-5">
         {items.map((item, index) => (

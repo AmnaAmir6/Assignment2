@@ -1720,3 +1720,10 @@ ul {
 img, svg {
     vertical-align: middle;
 }
+
+.flex{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
