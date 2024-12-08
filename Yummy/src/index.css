@@ -5818,6 +5818,9 @@ img, svg {
    }
  }
  
+ .text-center{
+  text-align: center;
+ }
  
  /*# sourceMappingURL=bootstrap-grid.css.map */
 
