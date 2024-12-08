@@ -1,5 +1,6 @@
 import React from 'react';
-import ReservationForm from './ReservationForm';
+
+import ReservationForm from './TableReservationForm';
 
 function BookTable() {
   return (
@@ -13,9 +14,9 @@ function BookTable() {
 
       <div className="container">
         <div className="row g-0" data-aos="fade-up" data-aos-delay="100">
-          <div
+        <div
             className="col-lg-4 reservation-img"
-            style={{ backgroundImage: `url(assets/img/reservation.jpg)` }}
+            style={{ backgroundImage: `url(src/assets/img/reservation.jpg)` }}
           ></div>
           <ReservationForm />
         </div>
